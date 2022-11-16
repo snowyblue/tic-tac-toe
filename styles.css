@@ -1,0 +1,28 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    width: 90vw;
+    height: 90vh;
+}
+
+.gameboard {
+    display: flex;
+    flex-wrap: wrap;
+    width: 30rem;
+    height: 30rem;
+
+}
+.btnMove {
+    width: 10rem;
+    height: 10rem;
+}
+
+.displayMove {
+    font-size: 5rem;
+    font-weight: 800;
+}
