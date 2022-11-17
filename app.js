@@ -17,8 +17,7 @@ const Player = (playerName, display) => {
     const updateName  = (name) => { 
         playerName = name.charAt(0).toUpperCase() + name.slice(1)
         return playerName
-        };
-
+    }
     const getName = () => {
         return playerName
     }
@@ -83,7 +82,6 @@ function displayGame(e, player) {
 
         if (movesArr.length >= 5 && !win) {
             document.querySelector('#gameMsg').innerText = "It's a Tie! Press Start to Play Again"
-            console.log("it's a tie")
             continueGame = false
             gameOver()
             return;
@@ -100,7 +98,7 @@ function displayGame(e, player) {
 
 
 function evaluateWin(player, movesArr) {
-    console.log('evaluate if move in winning combo')
+    console.log('evaluate move')
 
     for (let winningMove of winningCombo) {
         let i = 0
@@ -135,7 +133,6 @@ function playGame(e) {
     console.log(e)
     console.log('btnMove clicked')
 
-    //button seems to be clicked multiple times based on the number of times i "restart" may be accidently creating additional loops within?
     if (!continueGame) {
         gameOver()
         return;
@@ -143,9 +140,8 @@ function playGame(e) {
     } else {
 
         if (round % 2 === 1) {
-            //differentiate whose turn it is
             console.log('player1s turn')
-            //if displaygame returns true (valid move), then next player/computers turn
+
             if (displayGame(e, player1) && continueGame) {
                 round++
 
@@ -157,7 +153,7 @@ function playGame(e) {
 
             if (displayGame(e, computer) === true && continueGame) {
                 round++
-                //hand over to player 1
+
                 document.querySelector('#gameMsg').innerText = player1.getName() + "'s Turn"
             }
         }
@@ -177,7 +173,3 @@ function resetBoard() {
     round = 1
 }
 
-
-
-
-// gameTiles.forEach(tile => tile.removeEventListener('click', gameFunction))
